@@ -1,0 +1,29 @@
+---
+- hosts: web
+  become: yes
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start nginx as running and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Create a sample.txt file
+      copy:
+        content: "This is Sample file created by ansible in worker node"
+        dest: /tmp/sample.txt
+
+    - name: Update sample.txt file
+      lineinfile:
+        path: /tmp/sample.txt
+        line: "One line added to sample"
+
+    - name: Delete sample.txt file
+      file:
+        path: /tmp/sample.txt
+        state: absent
