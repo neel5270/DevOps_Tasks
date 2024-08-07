@@ -1,0 +1,13 @@
+---
+- hosts: database
+  become: yes
+  roles:
+    - database
+- hosts: backend
+  become: yes
+  roles:
+    - appserver
+- hosts: frontend
+  become: yes
+  roles:
+    - webserver
