@@ -1,0 +1,49 @@
+---
+- name: Install Node.js
+  apt:
+    name: nodejs
+    state: present
+  become: yes
+
+- name: Install npm
+  apt:
+    name: npm
+    state: present
+  become: yes
+
+
+- name: Ensure myapp directory exists
+  file:
+    path: "{{ app_path }}"
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: '0755'
+  become: yes
+
+- name: Copy entire directory to the target location
+  synchronize:
+    src: app/
+    dest: "{{ app_path }}"
+    recursive: yes
+  become: yes
+
+- name: Install application dependencies
+  npm:
+    path: "{{ app_path }}"
+    state: present
+  become: yes
+
+
+- name: Configure application service
+  template:
+    src: app.service.j2
+    dest: /etc/systemd/system/app.service
+  become: yes
+
+- name: Start and enable application service
+  systemd:
+    name: app
+    state: started
+    enabled: yes
+  become: yes

@@ -1,0 +1,17 @@
+- name: Install MySQL
+  apt:
+    name: mysql-server
+    state: present
+  notify: restart mysql
+
+- name: Configure MySQL
+  template:
+    src: my.cnf.j2
+    dest: /etc/mysql/my.cnf
+  notify: restart mysql
+
+- name: Ensure MySQL is running
+  service:
+    name: mysql
+    state: started
+    enabled: yes
