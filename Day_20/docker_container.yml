@@ -1,0 +1,30 @@
+---
+- name: Manage Docker Containers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure Docker is installed
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Pull the nginx image
+      docker_image:
+        name: nginx
+        source: pull
+
+    - name: Run a Docker container
+      docker_container:
+        name: nginx_container
+        image: nginx
+        state: started
+        ports:
+          - "85:80"
+
+    - name: Check Docker container status
+      command: docker ps
+      register: docker_status
+
+    - name: Print Docker container status
+      debug:
+        var: docker_status.stdout_lines
