@@ -1,0 +1,22 @@
+System Report - Monday 22 July 2024 11:25:37 AM IST
+====================
+
+CPU Usage: 6.8%
+Memory Usage: 27.2843%
+Disk Usage:
+30% /dev/nvme0n1p1
+2% /dev/nvme0n1p4
+1% /dev/nvme0n1p3
+
+Network Statistics:
+
+
+Last 5 Log Entries:
+Jul 22 11:25:34 AHMLPT2581 docker.dockerd[3549]: time="2024-07-22T11:25:34.987563088+05:30" level=error msg="fatal task error" error="No such image: my_microservice1:latest" module=node/agent/taskmanager node.id=rcw0um3pi5ixyq5qj19d93jph service.id=yhbzqcclnsmabawdy77owklky task.id=s1z7p6hnr8b6knpeyxdw1t6ro
+Jul 22 11:25:35 AHMLPT2581 docker.dockerd[3549]: time="2024-07-22T11:25:35.185889422+05:30" level=error msg="fatal task error" error="mkdir /var/lib/docker: read-only file system" module=node/agent/taskmanager node.id=rcw0um3pi5ixyq5qj19d93jph service.id=ydqenuq0dhrbe0c01tep20cl3 task.id=65h67xm9xeutaib5f4naiqjba
+Jul 22 11:25:35 AHMLPT2581 docker.dockerd[3549]: time="2024-07-22T11:25:35.220862329+05:30" level=error msg="Not continuing with pull after error: errors:\ndenied: requested access to the resource is denied\nunauthorized: authentication required\n"
+Jul 22 11:25:35 AHMLPT2581 docker.dockerd[3549]: time="2024-07-22T11:25:35.223459242+05:30" level=error msg="pulling image failed" error="pull access denied for my_microservice1, repository does not exist or may require 'docker login': denied: requested access to the resource is denied" module=node/agent/taskmanager node.id=rcw0um3pi5ixyq5qj19d93jph service.id=yhbzqcclnsmabawdy77owklky task.id=u7ol20v40dne9k6vxyg82w1yy
+Jul 22 11:25:35 AHMLPT2581 docker.dockerd[3549]: time="2024-07-22T11:25:35.223876904+05:30" level=error msg="fatal task error" error="No such image: my_microservice1:latest" module=node/agent/taskmanager node.id=rcw0um3pi5ixyq5qj19d93jph service.id=yhbzqcclnsmabawdy77owklky task.id=u7ol20v40dne9k6vxyg82w1yy
+
+Apache Status: Running
+MySQL Status: Not Running
