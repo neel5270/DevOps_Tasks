@@ -1,0 +1,8 @@
+.terraform
+terraform.tfstate.d
+.terraform.lock.hcl
+variables.tf
+modules/ec2/terraform.tfvars
+modules/ec2/variables.tf
+modules/s3/terraform.tfvars
+modules/s3/variables.tf
